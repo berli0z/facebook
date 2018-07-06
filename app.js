@@ -109,10 +109,13 @@ app.use(cors());
 app.use(bodyParser.json({limit: '4mb'}));
 app.use(bodyParser.urlencoded({limit: '4mb', extended: true}));
 
-
-/* This to actually post the event collection */
+/* minimum API which are required by the web-extension */
 app.post('/api/v:version/events', function(req, res) {
     return dispatchPromise('processEvents', req, res);
 });
-
-
+app.post('/api/v1/userInfo', function(req, res) {
+    return dispatchPromise('userInfo', req, res);
+});
+app.get('/api/v1/selector', function(req, res) {
+    return dispatchPromise('getSelector', req, res);
+});
