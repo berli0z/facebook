@@ -119,3 +119,15 @@ app.post('/api/v1/userInfo', function(req, res) {
 app.get('/api/v1/selector', function(req, res) {
     return dispatchPromise('getSelector', req, res);
 });
+
+
+/* Parser API */
+app.post('/api/v:version/snippet/status', function(req, res) {
+    return dispatchPromise('snippetAvailable', req, res);
+});
+app.post('/api/v:version/snippet/content', function(req, res) {
+    return dispatchPromise('snippetContent', req, res);
+});
+app.post('/api/v:version/snippet/result', function(req, res) {
+    return dispatchPromise('snippetResult', req, res);
+});
